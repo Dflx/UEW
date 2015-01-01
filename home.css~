@@ -1,0 +1,81 @@
+/** General----------------------**/
+body
+{	margin-left: 20px;
+	border:0px;
+	background-color:#292828;
+	color:#FFFFFF;
+	font:normal 75%/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.line
+{	border:0px;
+	height:2px;
+	background-color:white;
+}
+	
+/** Container----------------------**/
+#container
+{	width:960px;}
+
+
+/** Header----------------------**/
+#header
+{
+    margin: 60px 0px 0px 0px;
+	border-bottom:1px solid white;
+	padding-bottom:20px;
+}
+
+	
+
+#logo
+{	display:inline;
+	font-size:3em;
+}
+	/** Navigation----------------------**/
+	#navigation
+	{
+		float:right;
+		margin:0px 0px 0px 0px;
+	}
+	#logo
+	{	position:absolute;
+		top:35px;
+		margin:0 0; 
+	}
+	#navigation, li
+	{	list-style:none;
+		display:inline;
+	}
+	#navigation li
+	{	padding-left:10px;
+	}
+
+/** Content-------------------------**/
+.imagePanels
+{	width:185px;
+	height:500px;
+	border:1px solid white;
+	margin: 0px 5px 0px 0px;
+	float:left;
+}
+	#content
+	{	height:500px;
+		margin:0px;
+		padding: 40px 0 40px 0;
+	}
+
+
+
+/** Footer--------------------------**/
+#footer
+{	clear:both;
+	margin: 0px 0 0 0;
+	border-top:1px solid white;
+}
+	#copyright
+	{	margin:0 0 0 0;
+		padding:5px 0 0 0;
+	}
+
+

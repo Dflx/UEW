@@ -1,0 +1,177 @@
+.wrapper {
+	position: relative;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding-left: 3px;
+}
+	
+.boxes
+{	background-color: black;
+	opacity: .15;
+}
+
+#arrowBox {
+position: absolute;
+left: 260px;
+top: 21px;
+width: 700px;
+height: 500px;
+z-index: 2000;
+}
+	
+#leftArrow
+{	position:absolute;
+	z-index: -1;
+	left: 0;
+	top: 0;
+	height: 495px;
+	width: 30px;
+}
+	
+	
+#leftArrow img {
+	position: absolute;
+	top: 250px;
+}
+	
+#rightArrow
+{	position:absolute;
+	z-index: -1;
+	left: 670px;
+	top: 0;
+	height: 495px;
+	width: 30px;
+}
+
+	
+#rightArrow img {
+	position: absolute;
+	top: 250px;
+}
+.projectImage
+{	width: 700px;
+	height:500px;
+	overflow: hidden; 
+}
+		
+#indicator
+{	height:20px;
+	width:200px;
+	position:absolute;
+	top:520px;
+	padding:8px 0 0px 0;
+	right:0;
+}
+.indicatorBoxes
+{	height:10px;
+	width:10px;
+	float:right;
+	margin-left:5px;
+	border:solid 1px white;
+	cursor: pointer;
+}
+
+
+
+
+#TextFrame
+{	width:242px;
+	height:515px;
+	float: left;
+	text-align: right;
+	margin:0 20px 0 0;
+	padding:20px 18px 0 0px;
+	overflow:hidden;
+	z-index: 1000;
+	background-color: #292828;
+}
+/*
+#TextFrame {
+	width: 240px;
+	height: 500px;
+	text-align: right;
+	margin-right: 20px;
+	padding 0;
+	overflow: hidden;
+}
+*/
+
+#ProjectDescription
+{	padding: 0 0 0 10px;
+	border-bottom: 1px solid white;
+}
+h2
+{	margin:0 0;
+}
+
+/* testing content code */
+
+#content
+{	
+	height:545px;
+}
+
+#footer
+{	margin-top:0px;
+}
+
+
+.slider {
+	position: relative;
+}
+
+.slider ul {
+	position: absolute;
+	top: 0;
+	left: 260px;
+	height: 500px;
+	transition: left .8s;
+	display: "inline-block";
+	padding:0 0 0 0;
+	overflow: hidden;
+	z-index: -1;
+}
+
+.slider ul li {
+	list-style: none;
+	float: left;
+}
+
+#descriptionENG {
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+	padding: 5px 0 5px 0;
+	font-size: 1em;
+	line-height: 1.4;
+	font-family:"MavenProLight-300";
+}
+
+#descriptionCHN {
+	border-bottom: 1px solid  white;
+	border-top: 1px solid  white;
+	padding: 5px 0 5px 0;
+	font-size: 1em;
+	line-height: 1.4;
+	font-family:"MavenProLight-200";
+	max-height: 300px;
+}
+
+
+	
+
+#miscInfo {
+	padding: 5px 0 0 0;
+	font-size: .8em;
+	line-height: 1.4;
+	font-family:"MavenProLight-200";
+
+}
+
+#TextFrame h2 {
+	padding: 0 0 5px 0;
+}
+
+#projectSubtitle {
+	margin: 0px 0 3px 0;
+}

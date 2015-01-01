@@ -1,0 +1,131 @@
+.imagePanels
+	{	width: 220px;
+		height: 220px;
+		margin: 0px 5px 40px 0px;
+		float:left;
+		overflow: hidden;
+	}
+	.textFrames
+	{	width: 210px;
+		height: 220px;
+		margin: 0px 20px 40px 0px;
+		padding-left: 10px;
+		float:left;
+		line-height: 1.5;
+		vertical-align: top;
+		overflow:hidden;
+	}
+	h2
+	{	margin:0 0;
+		text-align:
+	} 
+	.imagePanels,textFrames
+	{	/* margin-bottom: 0px; */
+	}
+	
+/* L & R Buttons */   
+#leftArrow
+{	position:absolute;
+	z-index: 999;
+	left:0px;
+	top:11px;
+	height: 500px;
+	width: 30px;
+}
+	
+	
+#leftArrow img {
+	position: absolute;
+	top: 210px;
+}
+	
+#rightArrow
+{	position:absolute;
+	z-index: 999;
+	left: 930px;
+	top: 11px;
+	height: 500px;
+	width: 30px;
+}
+
+	
+#rightArrow img {
+	position: absolute;
+	top: 220px;
+}
+/* L & R Buttons */
+
+ /*  TESTING */
+.imagePanels
+	{	width: 200px;
+		height: 200px;
+		margin: 0px 0px 40px 0px;
+		float: left;
+		overflow: hidden;
+	}
+	.textFrames
+	{	width: 210px;
+		height: 200px;
+		margin: 0px 40px 40px 20px;
+		padding-left: 0px;
+		float:left;
+		overflow:hidden;
+		line-height: 1.6;
+	}
+	
+	h2
+	{ margin-top:0px;
+	}
+	.slider {
+		position: relative;
+	}
+	.slider ul {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 500px;
+		width: 1920px;
+		transition: left 1s;
+		display: "inline-block";
+	
+	}
+	.slider ul li {
+		list-style: none;
+		float: left;
+		margin-right: 20px;
+	}
+	.frame {
+	}
+	
+	.memberTitle {
+		line-height:.9;
+		padding-bottom: 0 0 0px 0;
+		font-family:"MavenProLight-100";
+	}
+	
+	.memberDescriptionENG {
+		height: 75px;
+		overflow: hidden;
+		padding: 10px 0 10px 0;
+		font-size: 1em;
+		line-height: 1.1;
+		font-family:"MavenProLight-300";
+
+	}
+	
+	.memberDescriptionCHN {
+		font-size: 1em;
+		line-height: 1.4;
+		font-family:"MavenProLight-100";
+		padding-top: 10px;
+	}
+	
+	.imagePanels
+		{	opacity: 1;
+		}
+		
+		#pedigree 
+		{	font-size: .8em;
+			font-family: "MavenProLight-200";
+			
+		}
