@@ -30,7 +30,7 @@ $query_all_projects = array(
 );
 $projects = get_pages($query_all_projects);
 
-$the_projects = array(); //holds project pages && thier children(pictures) as multi-dimensional array
+$the_projects = array(); //holds project pages && thier children(pictures) a as multi-dimensional array
 
 
 //create an array of parent pages (projects)
@@ -126,70 +126,6 @@ for($i = 1; $i < count($the_projects[$_GET['project']]); $i++) {//stars at 1 bec
 
 
 <?php  
-/*  
-//PRINT THE SLIDER   
-echo '<ul id="theSlider">';
-  	     	
-foreach($projects as $post) {
-   echo '<li>';
-	echo '<div id="frame">';
-	echo '<div id="TextFrame">';
-	
-	//PRINT CHINESE INFO
-	if($_GET['language'] == "Chinese") {
-   	echo '<h2>'; 
-   		echo custom_tag('chinese-title', $post->post_content);
-   	echo '</h2>';
-   
-   	echo '<h5 id="projectSubtitle">';
-   		echo custom_tag('chinese-subtitle', $post->post_content);
-		echo '</h5>';
-	
-	
-   echo '<div  id="descriptionCHN">';
-   	echo custom_tag('chinese', $post->post_content);
-    echo '</div>'; //descriptionCHN
-
-   
-   echo '<div id="miscInfo">';
-   	echo custom_tag('chinese-misc', $post->post_content);
-	echo '</div>'; //miscInfo
-	
-	
-	
-} else { //PRINT ENGLISH INFO
-
-
-	echo '<h2>' . $post->post_title . '</h2>';
-   
-   echo '<h5 id="projectSubtitle">';
-   	echo custom_tag('subtitle', $post->post_content);
-	echo '</h5>';
-	
-  
-   echo '<div id="descriptionENG">';
-   	echo custom_tag('english', $post->post_content);
-	echo '</div>'; //descriptionENG
-
-   
-   echo '<div id="miscInfo">';
-   	echo custom_tag('misc', $post->post_content);
-	echo '</div>'; //miscInfo
-	};
-
-
-	echo '</div><!-- TextFrame -->';
-   
-   echo '<div class="projectImage">';
- 	setup_postdata($post);
-	echo get_the_post_thumbnail($post->ID, 'full');
-	echo '</div> <!--projectImage-->';
-	echo '</div> <!--frame-->';
-   echo '</li>';
-};
-            	
-   echo '</ul> <!--slider-->';
- */
    
    //SETS THE SLIDER LENGTH DYNAMICALLY. OTHERWISE IMAGES WILL NOT BE INLINE
    echo '<script>';

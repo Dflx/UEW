@@ -40,6 +40,7 @@ if(is_page('contact')) {
 	$the_page = 'contact';
 }
 ?>
+
 <?php
 /*
 *THIS SETS THE QUERIES AND VARIABLES USED TO
@@ -262,10 +263,10 @@ if(language == "Chinese") {
 *PRINT PROJECT DROP DOWN TOOLBAR
 */
 
+/*
 $the_projects = array();
 
 //create an array of parent pages (projects)
-
 foreach($projects as $post) {
 	if($post->post_parent) { continue; };
 	$the_projects[] = array($post,);
@@ -276,9 +277,9 @@ foreach($projects as $post) {
 $project_number = 0; 
 /*
 *muliti-dimensional array; the_projects[year][title,title,title...]
-*/
 
-for($i = 0, $j = (date('Y') - 2012); $i <= $j; $i++) { //2014 == first post year
+
+for($i = 0, $j = (date('Y') - 2012); $i <= $j; $i++) { //2012 == first post year
 	$years = new WP_Query( array( 'post_type' => 'uew_projects', 'year' => (2012 + $i), 'post_parent' => 0, 'order' => 'ASC',));
 	if($years->have_posts() ) {
 			$counter = 0;
@@ -297,8 +298,8 @@ for($i = 0, $j = (date('Y') - 2012); $i <= $j; $i++) { //2014 == first post year
 };
 
 
-$to_print = 0;
-for($i = 0, $j = (date('Y') - 2012); $i <= $j; $i++) {
+//$to_print = 0;
+for($i = 0, $j = (date('Y') - 2012); $i <= $j; $i++) { //loop through $the_projects[years]
 	
 		for($c = 0; $c < count($the_projects[(2012 + $i)]); $c++ ) {
 			echo '<li class="projectNavLink">';
@@ -314,7 +315,32 @@ for($i = 0, $j = (date('Y') - 2012); $i <= $j; $i++) {
 		};
 }; 
 ?>
+*/
+	
+//create an array of parent pages (projects)
 
+foreach($projects as $post) {
+	if($post->post_parent) { continue; };
+	$the_projects[] = $post;
+}
+
+$project_number = 0;
+for($i=0; $i < count($the_projects); $i++) {
+		echo '<li class="projectNavLink">';
+		echo '<a href="' . get_permalink($real_projects->ID) . '&project=' . $project_number++ . '&language=' . $_GET['language'];
+		if(is_page($real_projects->ID) && ($project_number - 1) == $_GET['project']) { echo '" style="color: cyan';};
+		echo '">';
+			
+		if($_SESSION['language'] == 'Chinese') {
+			echo custom_tag("chinese-title", $the_projects[$i]->post_content);
+		} else { 
+			echo $the_projects[$i]->post_title;
+		};
+		
+		echo '</a></li>';
+};
+?>
+	
 		
 	</ul> 
 
@@ -329,13 +355,12 @@ for($i = 0, $j = (date('Y') - 2012); $i <= $j; $i++) {
 $slide_number = 0; 
 foreach($processes as $post) {
    echo '<li id="">';
-   if($_SESSION['language'] == 'Chinese') {
    	echo '<a href="' . get_permalink($process_page_id) . '&slide=' . ++$slide_number . '&language=' . $_GET['language'];
    	if(is_page($process_page_id) && $slide_number == $_GET['slide']) { echo '" style="color: cyan';};
+   	
+	if($_SESSION['language'] == 'Chinese') {
    	echo '">' . get_chinese_title('post', $post);
    } else {
-   	echo '<a href="' . get_permalink($process_page_id) . '&slide=' . ++$slide_number . '&language=' . $_GET['language'];
-   	if(is_page($process_page_id) && $slide_number == $_GET['slide']) { echo '" style="color: cyan';};
    	echo '">' . $post->post_title;
    };
    echo '</a></li>';
@@ -349,9 +374,10 @@ foreach($processes as $post) {
 
 
 <script src="wp-content/themes/UEW/js/global.js"></script>
+
 <?php
 /*
-*COLOR THE TOOLBAR LINK BLUE WHEN ON THAT PAGE
+*COLOR THE TOOLBAR LINK CYAN WHEN ON THAT PAGE
 */
 if(is_page('projects')) {
 	echo '<script> dropProjects("' .$project_button_id. '", "projects"); </script>';

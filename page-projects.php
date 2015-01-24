@@ -30,12 +30,12 @@ $query_all_projects = array(
 );
 $projects = get_pages($query_all_projects);
 
-$the_projects = array(); //holds project pages && thier children(pictures) as multi-dimensional array
+$the_projects = array(); //holds project pages && thier children(pictures) a as multi-dimensional array
 
 
 //create an array of parent pages (projects)
 foreach($projects as $post) {
-	if($post->post_parent) { continue; };
+	if($post->post_parent) { continue; }; //skip the other parent pages
 	$the_projects[] = array($post,);
 };
 

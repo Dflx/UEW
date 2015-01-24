@@ -2,8 +2,9 @@
 session_start();
 if(isset($_GET['language'])) { 
 	$_SESSION['language'] = $_GET['language']; 
+	
 	if($_SESSION['language'] == "Chinese") {
-		$_SESSION['language'] = "Chinese"; 
+		$_SESSION['language'] = "Chinese"; //break;
 	} else {
 		$_SESSION['language'] = "English";
 	};
@@ -34,6 +35,7 @@ $args = array(
 	'order' => 'ASC',
 );
 $home_images = get_posts($args);
+
 //LOOP THROUGH POSTS AND FORMAT FOR HOME PAGE
 $count = 0;
 foreach ($home_images as $image) { 
