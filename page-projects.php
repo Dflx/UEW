@@ -138,8 +138,8 @@ for($i = 1; $i < count($the_projects[$_GET['project']]); $i++) {//stars at 1 bec
 <script src="wp-content/themes/UEW/js/slider.js"></script>
 
 <script>
-//setSlider(string[page], string[slider Id default="theSlider"], int[slide size], float[max opacity], float[min opacity], int[offset])
-Slider.setSlider("projects", "theSlider", 702, .3, .5, false, 260);
+//setSlider(string[page], string[slider-Id default="theSlider"], int[slide size], float[max opacity], float[min opacity], int[offset])
+Slider.setSlider("projects", "theSlider", 700, .3, .5, false, 260);
 </script>
 
 <?php
