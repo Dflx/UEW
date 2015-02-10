@@ -9,31 +9,29 @@ if(isset($_GET['language'])) { $_SESSION['language'] = $_GET['language'] = $_GET
 <link rel="stylesheet" type="text/css" href= <?php echo get_template_directory_uri() . "/team.css"; ?>>
 
 <?php
-$members = array(
+$team = get_posts( array(
 	'post_type' 	=> 'uew_team_members',
 	'orderby' 	=> 'menu_order',
 	'numberposts' => -1,
 	'order' => 'ASC',
-);
+) );
 
-
-$team = get_posts($members);
-
-//ROUND UP TO THE NEXT PAGE
+//ROUNDS UP TO THE NEXT PAGE
 function pages($num) {
-	if(is_float($num / 4)) {
+	if( is_float($num / 4) ) {
 		return intval($num / 4) + 1;
 	} else {
-		return $num / 4;
+		return ($num / 4);
 	};
 };	
 
 echo '<div id="leftArrow" class="boxes" onclick="Slider.prev();"><div class="wrapper"><img src="' .get_template_directory_uri(). '/images/leftArrow.png" height="25px" width="25px"></div></div>';
 echo '<div id="rightArrow" class="boxes" onclick="Slider.next();"><div class="wrapper"><img src="' .get_template_directory_uri(). '/images/rightArrow.png" height="25px" width="25px"></div></div>';
-  
+?>  
 
-echo '<ul id="theSlider">';
+<ul id="theSlider">
 
+<?php
 for($page = 0; $page < pages(count($team)); $page++) {
 echo '<!-- Page ' .($page +1). ' -->';
 echo '<li>';
@@ -89,9 +87,8 @@ echo '<div class="frame">';
 		}; 
 	echo '</div></li>';
 };
-
-echo '</ul>';
 ?>
+</ul>
 
 <script src="wp-content/themes/UEW/js/slider.js"></script>
 

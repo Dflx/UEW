@@ -20,22 +20,21 @@ add_action('wp_enqueue_scripts', 'prowordpress_scripts_and_styles');
 
 //DEVELOPER FUNCTIONS
 
-
-
+//This function must be used after the $real_* variables have been initialized
 function which_page() {
-	if(is_page('projects')) {
+	if( is_page('projects') ) {
 		return get_permalink($real_projects->ID);
 	
-	} else if(is_page('process')) {
+	} else if( is_page('process') ) {
 		return get_permalink($real_process->ID);
 		
-	} else if(is_page('team')) {
+	} else if( is_page('team') ) {
 		return get_permalink($real_team->ID);
 		
-	} else if(is_page('philosophy')) {
+	} else if( is_page('philosophy') ) {
 		return get_permalink($real_philosophy->ID);
 		
-	} else if(is_page('contact')) {
+	} else if( is_page('contact') ) {
 		return get_permalink($real_contact->ID);
 		
 	} else { 
@@ -43,47 +42,59 @@ function which_page() {
 	};
 };
 
+
 function custom_tag($tag_name, $input) {
-	if($tag_name == 'title') {
-		preg_match_all("/&lt;title&gt;.*&lt;\/title&gt;/", $input, $matches); 
-  		return substr( $matches[0][0], 13, (strlen($matches[0][0]) - 27) );
-  		
-  	} else if($tag_name == 'chinese-title') {
-  		preg_match_all("/&lt;chinese-title&gt;(?s).*&lt;\/chinese-title&gt;/", $input, $matches);
-		return substr( $matches[0][0], 21, (strlen($matches[0][0]) - 43) );	
-  		
-  	} else if($tag_name == 'subtitle') {
-  		preg_match_all("/&lt;subtitle&gt;(?s).*&lt;\/subtitle&gt;/", $input, $matches);
-		return substr( $matches[0][0], 16, (strlen($matches[0][0]) - 33) );
-		
-	} else if($tag_name == 'chinese-subtitle') {
-  		preg_match_all("/&lt;chinese-subtitle&gt;(?s).*&lt;\/chinese-subtitle&gt;/", $input, $matches);
-		return substr( $matches[0][0], 24, (strlen($matches[0][0]) - 49) );
-	
-	} else if($tag_name == "english") {
-		preg_match_all("/&lt;english&gt;(?s).*&lt;\/english&gt;/", $input, $matches);
-		return substr( $matches[0][0], 15, (strlen($matches[0][0]) - 31) );
-		
-	} else if($tag_name == "chinese") {
-   	preg_match_all("/&lt;chinese&gt;(?s).*&lt;\/chinese&gt;/", $input, $matches);
-		return substr( $matches[0][0], 15, (strlen($matches[0][0]) - 31) );
-		
-	} else if($tag_name == "misc") {
-   	preg_match_all("/&lt;misc&gt;(?s).*&lt;\/misc&gt;/", $input, $matches);
-		return substr( $matches[0][0], 12, (strlen($matches[0][0]) - 25) );
-		
-	} else if($tag_name =='chinese-misc') {
-  		preg_match_all("/&lt;chinese-misc&gt;(?s).*&lt;\/chinese-misc&gt;/", $input, $matches);
-		return substr( $matches[0][0], 24, (strlen($matches[0][0]) - 49) );
-  	
-  	} else if($tag_name == "degree") {
-  		preg_match_all("/&lt;degree&gt;.*&lt;\/degree&gt;/", $input, $matches);
-  		return substr( $matches[0][0], 14, (strlen($matches[0][0]) - 29) );
-  		
-  	} else if($tag_name == "chinese-degree") {
-  		preg_match_all("/&lt;chinese-degree&gt;.*&lt;\/chinese-degree&gt;/", $input, $matches);
-  		return substr( $matches[0][0], 22, (strlen($matches[0][0]) - 45) );
-  	};
+	switch( $tag_name ) {
+		case 'title':
+			preg_match_all("/&lt;title&gt;.*&lt;\/title&gt;/", $input, $matches); 
+  			return substr( $matches[0][0], 13, (strlen($matches[0][0]) - 27) );
+  			break;
+  					
+		case 'english':
+			preg_match_all("/&lt;english&gt;(?s).*&lt;\/english&gt;/", $input, $matches);
+			return substr( $matches[0][0], 15, (strlen($matches[0][0]) - 31) );
+			break;
+					
+		case 'chinese':
+			preg_match_all("/&lt;chinese&gt;(?s).*&lt;\/chinese&gt;/", $input, $matches);
+			return substr( $matches[0][0], 15, (strlen($matches[0][0]) - 31) );
+			break;
+					
+		case 'subtitle':
+			preg_match_all("/&lt;subtitle&gt;(?s).*&lt;\/subtitle&gt;/", $input, $matches);
+			return substr( $matches[0][0], 16, (strlen($matches[0][0]) - 33) );
+			break;
+			
+		case 'chinese-title':
+			preg_match_all("/&lt;chinese-title&gt;(?s).*&lt;\/chinese-title&gt;/", $input, $matches);
+			return substr( $matches[0][0], 21, (strlen($matches[0][0]) - 43) );
+			break;
+			
+		case 'chinese-subtitle':
+			preg_match_all("/&lt;chinese-subtitle&gt;(?s).*&lt;\/chinese-subtitle&gt;/", $input, $matches);
+			return substr( $matches[0][0], 24, (strlen($matches[0][0]) - 49) );
+			break;
+			
+		case 'misc':
+				preg_match_all("/&lt;misc&gt;(?s).*&lt;\/misc&gt;/", $input, $matches);
+			return substr( $matches[0][0], 12, (strlen($matches[0][0]) - 25) );
+			break;
+			
+		case 'chinese-misc':
+			preg_match_all("/&lt;chinese-misc&gt;(?s).*&lt;\/chinese-misc&gt;/", $input, $matches);
+			return substr( $matches[0][0], 24, (strlen($matches[0][0]) - 49) );
+			break;
+			
+		case 'degree':
+			preg_match_all("/&lt;degree&gt;.*&lt;\/degree&gt;/", $input, $matches);
+  			return substr( $matches[0][0], 14, (strlen($matches[0][0]) - 29) );
+  			break;
+  			
+		case 'chinese-degree':
+			preg_match_all("/&lt;chinese-degree&gt;.*&lt;\/chinese-degree&gt;/", $input, $matches);
+  			return substr( $matches[0][0], 22, (strlen($matches[0][0]) - 45) );
+  			break;
+	};
 };
 
 

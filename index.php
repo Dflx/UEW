@@ -1,10 +1,11 @@
 <?php 
 session_start();
-if(isset($_GET['language'])) { 
+if( isset($_GET['language']) ) { 
 	$_SESSION['language'] = $_GET['language']; 
 	
 	if($_SESSION['language'] == "Chinese") {
-		$_SESSION['language'] = "Chinese"; //break;
+		$_SESSION['language'] = "Chinese"; 
+		
 	} else {
 		$_SESSION['language'] = "English";
 	};
@@ -18,23 +19,22 @@ if(isset($_GET['language'])) {
 <?php get_header(); ?>   
 	    
 <?php 
-		
-   $the_page = get_pages($query_all_pages);
-   foreach($the_page as $a_page) {
-   	if($a_page->post_title == "projects" || $a_page->post_title == "Projects") {
+	
+   $all_pages = get_pages();
+   foreach( $all_pages as $a_page ) {
+   	if( strtolower($a_page->post_title) == "projects" ) {
    		$project_page_id = $a_page->ID;
    	};
    };
 
 
 //QUERY THE 5 MOST RECENT POSTS IN ASCENDING ORDER (NEWEST FIRST)
-$args = array(
+$home_images = get_posts( array(
 	'post_type' 	=> 'uew_home_images',
 	'posts_per_page' => 5,
 	'orderby' 	=> 'menu_order',
 	'order' => 'ASC',
-);
-$home_images = get_posts($args);
+) );
 
 //LOOP THROUGH POSTS AND FORMAT FOR HOME PAGE
 $count = 0;

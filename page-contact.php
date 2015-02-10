@@ -9,13 +9,12 @@ if(isset($_GET['language'])) { $_SESSION['language'] = $_GET['language'] = $_GET
 <div class="imagePanels">
 
 <?php
-$query_contacts = array(
+$contact_pic = get_posts( array(
 	'category_name' => 'contact',
 	'orderby' => 'post_date',
 	'order' => 'ASC',
-);	
+) );
 
-$contact_pic = get_posts($query_contacts);
 foreach($contact_pic as $post) {
 	echo get_the_post_thumbnail($post->ID, full); 
 	echo '</div>';

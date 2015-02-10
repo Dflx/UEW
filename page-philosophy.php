@@ -8,14 +8,12 @@ if(isset($_GET['language'])) { $_SESSION['language'] = $_GET['language'] = $_GET
 <link rel="stylesheet" type="text/css" href= <?php echo get_template_directory_uri() . "/philosophy.css"; ?>>
 
 <?php
-$query_philosophy = array(
+$philosophy_pic = get_posts( array(
 	'category_name' => 'philosophy',
 	'posts_per_page' => '1',
 	'orderby' => 'post_date',
 	'order' => 'ASC',
-);
-
-$philosophy_pic = get_posts($query_philosophy);
+) );
 	foreach($philosophy_pic as $post) {
 	echo '<div class="imagePanels">';				
 	echo get_the_post_thumbnail($post->ID, 'full');
